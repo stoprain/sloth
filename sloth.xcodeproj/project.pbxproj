@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B436B5FF2927AE2C009F1A1B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B5FE2927AE2C009F1A1B /* WebView.swift */; };
+		B436B61C2927D1B5009F1A1B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B61B2927D1B5009F1A1B /* PageViewController.swift */; };
+		B436B61E29286969009F1A1B /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B61D29286968009F1A1B /* DocumentPickerView.swift */; };
+		B436B62229286F18009F1A1B /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B62129286F18009F1A1B /* DocumentListView.swift */; };
+		B436B624292870FC009F1A1B /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B623292870FC009F1A1B /* DocumentView.swift */; };
 		B46828F429278CE900A3E113 /* slothApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46828F329278CE900A3E113 /* slothApp.swift */; };
 		B46828F629278CE900A3E113 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46828F529278CE900A3E113 /* ContentView.swift */; };
 		B46828F829278CEB00A3E113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B46828F729278CEB00A3E113 /* Assets.xcassets */; };
 		B46828FB29278CEB00A3E113 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B46828FA29278CEB00A3E113 /* Preview Assets.xcassets */; };
+		B468290329278E5400A3E113 /* EPUBKit in Frameworks */ = {isa = PBXBuildFile; productRef = B468290229278E5400A3E113 /* EPUBKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B436B5FE2927AE2C009F1A1B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		B436B61B2927D1B5009F1A1B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		B436B61D29286968009F1A1B /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
+		B436B62129286F18009F1A1B /* DocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListView.swift; sourceTree = "<group>"; };
+		B436B623292870FC009F1A1B /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		B46828F029278CE900A3E113 /* sloth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sloth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46828F329278CE900A3E113 /* slothApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slothApp.swift; sourceTree = "<group>"; };
 		B46828F529278CE900A3E113 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B468290329278E5400A3E113 /* EPUBKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +67,11 @@
 				B46828F529278CE900A3E113 /* ContentView.swift */,
 				B46828F729278CEB00A3E113 /* Assets.xcassets */,
 				B46828F929278CEB00A3E113 /* Preview Content */,
+				B436B5FE2927AE2C009F1A1B /* WebView.swift */,
+				B436B61B2927D1B5009F1A1B /* PageViewController.swift */,
+				B436B61D29286968009F1A1B /* DocumentPickerView.swift */,
+				B436B62129286F18009F1A1B /* DocumentListView.swift */,
+				B436B623292870FC009F1A1B /* DocumentView.swift */,
 			);
 			path = sloth;
 			sourceTree = "<group>";
@@ -83,6 +100,9 @@
 			dependencies = (
 			);
 			name = sloth;
+			packageProductDependencies = (
+				B468290229278E5400A3E113 /* EPUBKit */,
+			);
 			productName = sloth;
 			productReference = B46828F029278CE900A3E113 /* sloth.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,9 @@
 				Base,
 			);
 			mainGroup = B46828E729278CE900A3E113;
+			packageReferences = (
+				B468290129278E5400A3E113 /* XCRemoteSwiftPackageReference "EPUBKit" */,
+			);
 			productRefGroup = B46828F129278CE900A3E113 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B436B5FF2927AE2C009F1A1B /* WebView.swift in Sources */,
+				B436B61E29286969009F1A1B /* DocumentPickerView.swift in Sources */,
 				B46828F629278CE900A3E113 /* ContentView.swift in Sources */,
+				B436B62229286F18009F1A1B /* DocumentListView.swift in Sources */,
 				B46828F429278CE900A3E113 /* slothApp.swift in Sources */,
+				B436B61C2927D1B5009F1A1B /* PageViewController.swift in Sources */,
+				B436B624292870FC009F1A1B /* DocumentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +367,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B468290129278E5400A3E113 /* XCRemoteSwiftPackageReference "EPUBKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/witekbobrowski/EPUBKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B468290229278E5400A3E113 /* EPUBKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B468290129278E5400A3E113 /* XCRemoteSwiftPackageReference "EPUBKit" */;
+			productName = EPUBKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B46828E829278CE900A3E113 /* Project object */;
 }

@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var showPicker = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button(action: {
+                self.showPicker.toggle()
+            }, label: {
+                Text("Push me")
+            })
+            .sheet(isPresented: self.$showPicker) {
+                DocumentPickerView()
+            }
+            DocumentListView()
         }
-        .padding()
     }
 }
 

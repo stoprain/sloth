@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import EPUBKit
 
 struct DocumentView: View {
     

@@ -11,39 +11,13 @@ struct DocumentAttributedLabel: UIViewRepresentable {
     
     var url: URL
     
-//    func makeUIView(context: Context) -> DTAttributedLabel {
-//        let l = DTAttributedLabel()
-//        return l
-//    }
-//
-//    func updateUIView(_ uiView: DTAttributedLabel, context: Context) {
-//        print(url)
-//        guard let data = try? Data(contentsOf: url) else { return }
-//        let options: [String : Any] = [
-//            NSBaseURLDocumentOption: url,
-//            DTDefaultFontName: "TimesNewRomanPSMT",
-//            DTMaxImageSize: CGSize(width: 341, height: 1000),
-//            NSTextSizeMultiplierDocumentOption: 1,
-//            DTDefaultLineHeightMultiplier: 1,
-//            DTDefaultLinkColor: "#536FFA",
-//            DTDefaultTextColor: "#000000",
-//            DTDefaultFontSize: 15.0
-//        ]
-//
-//        let htmlString = try? NSAttributedString(htmlData: data, options: options, documentAttributes: nil)
-//        uiView.attributedString = htmlString
-//        print(htmlString)
-//    }
-//
-//    typealias UIViewType = DTAttributedLabel
-    
     func makeUIView(context: Context) -> UIScrollView {
         let l = UIScrollView()
         return l
     }
     
     func updateUIView(_ uiView: UIScrollView, context: Context) {
-        let textStorage = try? NSTextStorage(fileURL: url, documentAttributes: nil)
+        let textStorage = try? NSTextStorage(url: url, documentAttributes: nil)
         let layoutManager = NSLayoutManager()
         textStorage?.addLayoutManager(layoutManager)
         

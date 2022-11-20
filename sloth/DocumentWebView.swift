@@ -1,5 +1,5 @@
 //
-//  WebView.swift
+//  DocumentWebView.swift
 //  sloth
 //
 //  Created by Rain Qian on 2022/11/18.
@@ -8,7 +8,7 @@
 import SwiftUI
 import WebKit
 
-struct WebView: UIViewRepresentable {
+struct DocumentWebView: UIViewRepresentable {
     
     var url: URL
     

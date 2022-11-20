@@ -8,19 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var showPicker = false
-    
     var body: some View {
         VStack {
-            Button(action: {
-                self.showPicker.toggle()
-            }, label: {
-                Text("Push me")
-            })
-            .sheet(isPresented: self.$showPicker) {
-                DocumentPickerView()
-            }
             DocumentListView()
         }
     }

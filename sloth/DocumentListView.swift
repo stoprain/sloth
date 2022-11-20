@@ -15,10 +15,21 @@ struct Document {
 struct DocumentListView: View {
     
     @State var documents = [Document]()
+    @State var showPicker = false
     
     var body: some View {
         VStack {
             NavigationView {
+                
+//                Button(action: {
+//                    self.showPicker.toggle()
+//                }, label: {
+//                    Text("Push me")
+//                })
+//                .sheet(isPresented: self.$showPicker) {
+//                    DocumentPickerView()
+//                }
+                
                 List(documents, id: \.title) { d in
                     NavigationLink {
                         DocumentView(document: d)

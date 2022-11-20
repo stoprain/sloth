@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import EPUBKit
 
 struct DocumentView: View {
     
@@ -17,7 +16,8 @@ struct DocumentView: View {
         VStack {
             List(contents, id: \.self) { c in
                 NavigationLink {
-                    WebView(url: URL(fileURLWithPath: parse(s: c)))
+//                    DocumentWebView(url: URL(fileURLWithPath: parse(s: c)))
+                    DocumentTextView(url: URL(fileURLWithPath: parse(s: c)))
                 } label: {
                     Text(c)
                 }

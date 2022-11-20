@@ -13,7 +13,7 @@
 		B436B62229286F18009F1A1B /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B62129286F18009F1A1B /* DocumentListView.swift */; };
 		B436B624292870FC009F1A1B /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B623292870FC009F1A1B /* DocumentView.swift */; };
 		B44EE6ED2928EC0D0005B083 /* DocumentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44EE6EC2928EC0D0005B083 /* DocumentTextView.swift */; };
-		B44EE6EF2928EC9C0005B083 /* DocumentAttributedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44EE6EE2928EC9C0005B083 /* DocumentAttributedLabel.swift */; };
+		B44EE6EF2928EC9C0005B083 /* DocumentTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44EE6EE2928EC9C0005B083 /* DocumentTextContainer.swift */; };
 		B46828F429278CE900A3E113 /* slothApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46828F329278CE900A3E113 /* slothApp.swift */; };
 		B46828F629278CE900A3E113 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46828F529278CE900A3E113 /* ContentView.swift */; };
 		B46828F829278CEB00A3E113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B46828F729278CEB00A3E113 /* Assets.xcassets */; };
@@ -28,7 +28,7 @@
 		B436B62129286F18009F1A1B /* DocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListView.swift; sourceTree = "<group>"; };
 		B436B623292870FC009F1A1B /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		B44EE6EC2928EC0D0005B083 /* DocumentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTextView.swift; sourceTree = "<group>"; };
-		B44EE6EE2928EC9C0005B083 /* DocumentAttributedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAttributedLabel.swift; sourceTree = "<group>"; };
+		B44EE6EE2928EC9C0005B083 /* DocumentTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTextContainer.swift; sourceTree = "<group>"; };
 		B44EE81F29290C580005B083 /* sloth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sloth-Bridging-Header.h"; sourceTree = "<group>"; };
 		B46828F029278CE900A3E113 /* sloth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sloth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46828F329278CE900A3E113 /* slothApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slothApp.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 				B436B62129286F18009F1A1B /* DocumentListView.swift */,
 				B436B623292870FC009F1A1B /* DocumentView.swift */,
 				B44EE6EC2928EC0D0005B083 /* DocumentTextView.swift */,
-				B44EE6EE2928EC9C0005B083 /* DocumentAttributedLabel.swift */,
+				B44EE6EE2928EC9C0005B083 /* DocumentTextContainer.swift */,
 				B44EE81F29290C580005B083 /* sloth-Bridging-Header.h */,
 			);
 			path = sloth;
@@ -171,7 +171,7 @@
 				B44EE6ED2928EC0D0005B083 /* DocumentTextView.swift in Sources */,
 				B436B5FF2927AE2C009F1A1B /* DocumentWebView.swift in Sources */,
 				B436B61E29286969009F1A1B /* DocumentPickerView.swift in Sources */,
-				B44EE6EF2928EC9C0005B083 /* DocumentAttributedLabel.swift in Sources */,
+				B44EE6EF2928EC9C0005B083 /* DocumentTextContainer.swift in Sources */,
 				B46828F629278CE900A3E113 /* ContentView.swift in Sources */,
 				B436B62229286F18009F1A1B /* DocumentListView.swift in Sources */,
 				B46828F429278CE900A3E113 /* slothApp.swift in Sources */,

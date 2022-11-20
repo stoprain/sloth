@@ -11,7 +11,9 @@ struct DocumentTextView: View {
     var url: URL
     
     var body: some View {
-        DocumentAttributedLabel(url: url)
+        GeometryReader { proxy in
+            DocumentTextContainer(url: url, frame: proxy.frame(in: .local))
+        }
     }
 }
 

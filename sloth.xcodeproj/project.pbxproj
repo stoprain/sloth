@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B436B5FF2927AE2C009F1A1B /* DocumentWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B5FE2927AE2C009F1A1B /* DocumentWebView.swift */; };
+		B436B5FF2927AE2C009F1A1B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B5FE2927AE2C009F1A1B /* WebView.swift */; };
 		B436B61C2927D1B5009F1A1B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B61B2927D1B5009F1A1B /* PageViewController.swift */; };
 		B436B61E29286969009F1A1B /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B61D29286968009F1A1B /* DocumentPickerView.swift */; };
 		B436B62229286F18009F1A1B /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B62129286F18009F1A1B /* DocumentListView.swift */; };
@@ -19,10 +19,15 @@
 		B46828F829278CEB00A3E113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B46828F729278CEB00A3E113 /* Assets.xcassets */; };
 		B46828FB29278CEB00A3E113 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B46828FA29278CEB00A3E113 /* Preview Assets.xcassets */; };
 		B4E7627B292A2974000D44AF /* EPUBKit in Frameworks */ = {isa = PBXBuildFile; productRef = B4E7627A292A2974000D44AF /* EPUBKit */; };
+		B4E7627F292BADE9000D44AF /* ECDICTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E7627E292BADE9000D44AF /* ECDICTHelper.swift */; };
+		B4E76282292BAE10000D44AF /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B4E76281292BAE10000D44AF /* SQLite */; };
+		B4E76284292BB2EC000D44AF /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E76283292BB2EC000D44AF /* Translator.swift */; };
+		B4E76286292D9AC8000D44AF /* ecdict.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = B4E76285292D9AC8000D44AF /* ecdict.db.zip */; };
+		B4E76288292D9AF0000D44AF /* WebListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E76287292D9AF0000D44AF /* WebListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B436B5FE2927AE2C009F1A1B /* DocumentWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentWebView.swift; sourceTree = "<group>"; };
+		B436B5FE2927AE2C009F1A1B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		B436B61B2927D1B5009F1A1B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B436B61D29286968009F1A1B /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
 		B436B62129286F18009F1A1B /* DocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListView.swift; sourceTree = "<group>"; };
@@ -35,6 +40,10 @@
 		B46828F529278CE900A3E113 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B46828F729278CEB00A3E113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B46828FA29278CEB00A3E113 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B4E7627E292BADE9000D44AF /* ECDICTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECDICTHelper.swift; sourceTree = "<group>"; };
+		B4E76283292BB2EC000D44AF /* Translator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
+		B4E76285292D9AC8000D44AF /* ecdict.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = ecdict.db.zip; sourceTree = "<group>"; };
+		B4E76287292D9AF0000D44AF /* WebListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4E76282292BAE10000D44AF /* SQLite in Frameworks */,
 				B4E7627B292A2974000D44AF /* EPUBKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,11 +78,12 @@
 		B46828F229278CE900A3E113 /* sloth */ = {
 			isa = PBXGroup;
 			children = (
+				B4E76285292D9AC8000D44AF /* ecdict.db.zip */,
 				B46828F329278CE900A3E113 /* slothApp.swift */,
 				B46828F529278CE900A3E113 /* ContentView.swift */,
 				B46828F729278CEB00A3E113 /* Assets.xcassets */,
 				B46828F929278CEB00A3E113 /* Preview Content */,
-				B436B5FE2927AE2C009F1A1B /* DocumentWebView.swift */,
+				B436B5FE2927AE2C009F1A1B /* WebView.swift */,
 				B436B61B2927D1B5009F1A1B /* PageViewController.swift */,
 				B436B61D29286968009F1A1B /* DocumentPickerView.swift */,
 				B436B62129286F18009F1A1B /* DocumentListView.swift */,
@@ -80,6 +91,9 @@
 				B44EE6EC2928EC0D0005B083 /* DocumentTextView.swift */,
 				B44EE6EE2928EC9C0005B083 /* DocumentTextContainer.swift */,
 				B44EE81F29290C580005B083 /* sloth-Bridging-Header.h */,
+				B4E7627E292BADE9000D44AF /* ECDICTHelper.swift */,
+				B4E76283292BB2EC000D44AF /* Translator.swift */,
+				B4E76287292D9AF0000D44AF /* WebListView.swift */,
 			);
 			path = sloth;
 			sourceTree = "<group>";
@@ -110,6 +124,7 @@
 			name = sloth;
 			packageProductDependencies = (
 				B4E7627A292A2974000D44AF /* EPUBKit */,
+				B4E76281292BAE10000D44AF /* SQLite */,
 			);
 			productName = sloth;
 			productReference = B46828F029278CE900A3E113 /* sloth.app */;
@@ -141,6 +156,7 @@
 			mainGroup = B46828E729278CE900A3E113;
 			packageReferences = (
 				B4E76279292A2974000D44AF /* XCRemoteSwiftPackageReference "EPUBKit" */,
+				B4E76280292BAE10000D44AF /* XCRemoteSwiftPackageReference "SQLite" */,
 			);
 			productRefGroup = B46828F129278CE900A3E113 /* Products */;
 			projectDirPath = "";
@@ -157,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B46828FB29278CEB00A3E113 /* Preview Assets.xcassets in Resources */,
+				B4E76286292D9AC8000D44AF /* ecdict.db.zip in Resources */,
 				B46828F829278CEB00A3E113 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,11 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4E76284292BB2EC000D44AF /* Translator.swift in Sources */,
+				B4E76288292D9AF0000D44AF /* WebListView.swift in Sources */,
 				B44EE6ED2928EC0D0005B083 /* DocumentTextView.swift in Sources */,
-				B436B5FF2927AE2C009F1A1B /* DocumentWebView.swift in Sources */,
+				B436B5FF2927AE2C009F1A1B /* WebView.swift in Sources */,
 				B436B61E29286969009F1A1B /* DocumentPickerView.swift in Sources */,
 				B44EE6EF2928EC9C0005B083 /* DocumentTextContainer.swift in Sources */,
 				B46828F629278CE900A3E113 /* ContentView.swift in Sources */,
+				B4E7627F292BADE9000D44AF /* ECDICTHelper.swift in Sources */,
 				B436B62229286F18009F1A1B /* DocumentListView.swift in Sources */,
 				B46828F429278CE900A3E113 /* slothApp.swift in Sources */,
 				B436B61C2927D1B5009F1A1B /* PageViewController.swift in Sources */,
@@ -318,7 +338,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.stoprain.sloth.sloth;
+				PRODUCT_BUNDLE_IDENTIFIER = net.stoprain.sloth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "sloth/sloth-Bridging-Header.h";
@@ -348,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.stoprain.sloth.sloth;
+				PRODUCT_BUNDLE_IDENTIFIER = net.stoprain.sloth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "sloth/sloth-Bridging-Header.h";
@@ -389,6 +409,14 @@
 				minimumVersion = 0.4.0;
 			};
 		};
+		B4E76280292BAE10000D44AF /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -396,6 +424,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B4E76279292A2974000D44AF /* XCRemoteSwiftPackageReference "EPUBKit" */;
 			productName = EPUBKit;
+		};
+		B4E76281292BAE10000D44AF /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4E76280292BAE10000D44AF /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

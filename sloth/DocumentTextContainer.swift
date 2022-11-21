@@ -62,6 +62,9 @@ struct DocumentTextContainer: UIViewRepresentable {
             textView.isEditable = false
             uiView.addSubview(textView)
             
+            let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.doAction(sender:)))
+            textView.addGestureRecognizer(tap)
+            
             textView.attributedText.enumerateAttribute(NSAttributedString.Key.attachment, in: NSRange(location: 0, length: textView.attributedText.length)) { (value, range, stop) in
                 if (value is NSTextAttachment){
                     guard let attachment = value as? NSTextAttachment else { return }
@@ -83,5 +86,81 @@ struct DocumentTextContainer: UIViewRepresentable {
     }
     
     typealias UIViewType = UIScrollView
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+    
+    class Coordinator: NSObject {
+        @objc func doAction(sender: Any) {
+            guard let recognizer = sender as? UITapGestureRecognizer else { return }
+            guard let textView = recognizer.view as? UITextView else { return }
+//
+//            print("########")
+//            print(recognizer)
+//            print(textView)
+//
+//            let location: CGPoint = recognizer.location(in: textView)
+//            print(location)
+//            let position: CGPoint = CGPoint(x: location.x, y: location.y)
+//            print(position)
+//            if let tapPosition: UITextPosition = textView.closestPosition(to: position) {
+//                guard let textRange: UITextRange = textView.tokenizer.rangeEnclosingPosition(tapPosition, with: UITextGranularity.word, inDirection: UITextDirection(rawValue: 1)) else {return}
+//
+//                let tappedWord: String = textView.text(in: textRange) ?? ""
+//
+//                Translator.shared.input = tappedWord
+//            } else {
+//                Translator.shared.input = ""
+//            }
+            
+//        https://stackoverflow.com/questions/25465274/get-tapped-word-from-uitextview-in-swift
+
+//            guard let textView = recognizer.view as? UITextView else { return }
+//            let layoutManager = textView.layoutManager
+//            var location: CGPoint = recognizer.location(in: textView)
+//            location.x -= textView.textContainerInset.left
+//            location.y -= textView.textContainerInset.top
+//
+//            var charIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+//
+//             guard charIndex < textView.textStorage.length else {
+//                 return
+//             }
+//
+//             var range = NSRange(location: 0, length: 0)
+//
+//            if let idval = textView.attributedText?.attribute(NSAttributedString.Key("idnum"), at: charIndex, effectiveRange: &range) as? NSString {
+//                 print("id value: \(idval)")
+//                 print("charIndex: \(charIndex)")
+//                 print("range.location = \(range.location)")
+//                 print("range.length = \(range.length)")
+//                 let tappedPhrase = (textView.attributedText.string as NSString).substring(with: range)
+//                 print("tapped phrase: \(tappedPhrase)")
+//                 var mutableText = textView.attributedText.mutableCopy() as? NSMutableAttributedString
+//                mutableText?.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], range: range)
+//                 textView.attributedText = mutableText
+//             }
+//            if let desc = textView.attributedText?.attribute(NSAttributedString.Key("desc"), at: charIndex, effectiveRange: &range) as? NSString {
+//                 print("desc: \(desc)")
+//             }
+            
+            let layoutManager = textView.layoutManager
+            var location = recognizer.location(in: textView)
+            location.x -= textView.textContainerInset.left
+            location.y -= textView.textContainerInset.top
+            
+            let characterIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+            print(characterIndex)
+            if characterIndex < textView.textStorage.length {
+//                textView.position(within: , atCharacterOffset: <#T##Int#>)
+//                textView.tokenizer.rangeEnclosingPosition(UITextPosition, with: <#T##UITextGranularity#>, inDirection: <#T##UITextDirection#>)
+//                guard let textRange: UITextRange = textView.tokenizer.rangeEnclosingPosition(characterIndex, with: UITextGranularity.word, inDirection: UITextDirection(rawValue: 1)) else {return}
+                //
+                //                let tappedWord: String = textView.text(in: textRange) ?? ""
+            }
+            
+        }
+    }
     
 }

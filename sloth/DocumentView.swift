@@ -19,6 +19,7 @@ struct DocumentView: View {
                 NavigationLink {
 //                    DocumentWebView(url: URL(fileURLWithPath: parse(s: c)))
                     DocumentTextView(url: URL(fileURLWithPath: parse(s: c)))
+                        .navigationBarHidden(true)
                 } label: {
                     Text(c)
                 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Defaults
 
 var firstTextView: UITextView?
 
@@ -30,6 +31,7 @@ struct DocumentTextContainer: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UIScrollView {
         let l = UIScrollView()
+        l.delegate = context.coordinator
         return l
     }
     
@@ -97,116 +99,51 @@ struct DocumentTextContainer: UIViewRepresentable {
         Coordinator()
     }
     
-    class Coordinator: NSObject {
-        @objc func doAction(sender: Any) {
-            guard let recognizer = sender as? UITapGestureRecognizer else { return }
-            guard let textView = recognizer.view as? UITextView else { return }
-//
-//            print("########")
-//            print(recognizer)
-//            print(textView)
-//
-//            let location: CGPoint = recognizer.location(in: textView)
-//            print(location)
-//            let position: CGPoint = CGPoint(x: location.x, y: location.y)
-//            print(position)
-//            if let tapPosition: UITextPosition = textView.closestPosition(to: position) {
-//                guard let textRange: UITextRange = textView.tokenizer.rangeEnclosingPosition(tapPosition, with: UITextGranularity.word, inDirection: UITextDirection(rawValue: 1)) else {return}
-//
-//                let tappedWord: String = textView.text(in: textRange) ?? ""
-//
-//                Translator.shared.input = tappedWord
-//            } else {
-//                Translator.shared.input = ""
-//            }
-            
-//        https://stackoverflow.com/questions/25465274/get-tapped-word-from-uitextview-in-swift
+}
 
-//            guard let textView = recognizer.view as? UITextView else { return }
-//            let layoutManager = textView.layoutManager
-//            var location: CGPoint = recognizer.location(in: textView)
-//            location.x -= textView.textContainerInset.left
-//            location.y -= textView.textContainerInset.top
-//
-//            var charIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-//
-//             guard charIndex < textView.textStorage.length else {
-//                 return
-//             }
-//
-//             var range = NSRange(location: 0, length: 0)
-//
-//            if let idval = textView.attributedText?.attribute(NSAttributedString.Key("idnum"), at: charIndex, effectiveRange: &range) as? NSString {
-//                 print("id value: \(idval)")
-//                 print("charIndex: \(charIndex)")
-//                 print("range.location = \(range.location)")
-//                 print("range.length = \(range.length)")
-//                 let tappedPhrase = (textView.attributedText.string as NSString).substring(with: range)
-//                 print("tapped phrase: \(tappedPhrase)")
-//                 var mutableText = textView.attributedText.mutableCopy() as? NSMutableAttributedString
-//                mutableText?.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], range: range)
-//                 textView.attributedText = mutableText
-//             }
-//            if let desc = textView.attributedText?.attribute(NSAttributedString.Key("desc"), at: charIndex, effectiveRange: &range) as? NSString {
-//                 print("desc: \(desc)")
-//             }
-            
-            let layoutManager = textView.layoutManager
-            var location = recognizer.location(in: textView)
-            location.x -= textView.textContainerInset.left
-            location.y -= textView.textContainerInset.top
-            
-            let characterIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-//            print(characterIndex)
-            if characterIndex < textView.textStorage.length {
-                
-//                let myRange = NSRange(location: characterIndex, length: 1)
-//                let substring = (textView.attributedText.string as NSString).substring(with: myRange)
-//                print(substring)
-                
-//                let text = textView.attributedText.string
-//                let tagger = NSLinguisticTagger(tagSchemes: [.tokenType], options: 0)
-//                tagger.string = text
-//
-//                let range = NSRange(location: 0, length: text.utf16.count)
-//                let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
-//                tagger.enumerateTags(in: range, unit: .word, scheme: .tokenType, options: options) { _, tokenRange, _ in
-//                    let word = (text as NSString).substring(with: tokenRange)
-//                    print(word)
-//                }
-                
-                let word = wordAtIndex(index: characterIndex, inString: textView.attributedText.string as NSString)
-                Translator.shared.input = word as String
-//                print(word)
-                
-                
-//                guard let tapPosition = textView.closestPosition(to: location) else { return }
-//                print(tapPosition)
-////                print(textView.characterRange(at: location))
-//                //fetch the word at this position (or nil, if not available)
-//                if let textRange = textView.tokenizer.rangeEnclosingPosition(tapPosition, with: .word, inDirection: UITextDirection(rawValue: 1)) {
-//                    if let tappedWord = textView.text(in: textRange) {
-//                        print("selected word :\(tappedWord)")
-//                        //This only prints when I seem to tap the first letter of word.
-//                    }
-//                }
-            }
-            
-            
-            
+class Coordinator: NSObject {
+    @objc func doAction(sender: Any) {
+        guard let recognizer = sender as? UITapGestureRecognizer else { return }
+        guard let textView = recognizer.view as? UITextView else { return }
+        
+        let layoutManager = textView.layoutManager
+        var location = recognizer.location(in: textView)
+        location.x -= textView.textContainerInset.left
+        location.y -= textView.textContainerInset.top
+        
+        let characterIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+        //TODO: highlight tap area
+        if characterIndex < textView.textStorage.length {
+            let word = wordAtIndex(index: characterIndex, inString: textView.attributedText.string as NSString)
+            Translator.shared.input = word as String
         }
         
-        func wordRangeAtIndex(index:Int, inString str:NSString) -> NSRange {
-            let tagger = NSLinguisticTagger(tagSchemes: [NSLinguisticTagScheme.tokenType], options: 0)
-            var r : NSRange = NSMakeRange(0, 0)
-            tagger.string = str as String
-            tagger.tag(at: index, scheme: NSLinguisticTagScheme.tokenType, tokenRange: &r, sentenceRange: nil )
-            return r
-        }
-
-        func wordAtIndex(index:Int, inString str:NSString) -> NSString {
-            return str.substring(with: wordRangeAtIndex(index: index, inString: str)) as NSString
-        }
     }
     
+    func wordRangeAtIndex(index:Int, inString str:NSString) -> NSRange {
+        let tagger = NSLinguisticTagger(tagSchemes: [NSLinguisticTagScheme.tokenType], options: 0)
+        var r : NSRange = NSMakeRange(0, 0)
+        tagger.string = str as String
+        tagger.tag(at: index, scheme: NSLinguisticTagScheme.tokenType, tokenRange: &r, sentenceRange: nil )
+        return r
+    }
+
+    func wordAtIndex(index:Int, inString str:NSString) -> NSString {
+        return str.substring(with: wordRangeAtIndex(index: index, inString: str)) as NSString
+    }
+}
+
+extension Coordinator: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        updateIndex(scrollView: scrollView)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        updateIndex(scrollView: scrollView)
+    }
+    
+    func updateIndex(scrollView: UIScrollView) {
+        Defaults[.pageIndex] = UInt(scrollView.contentOffset.x / scrollView.bounds.size.width)
+        print(Defaults[.pageIndex])
+    }
 }

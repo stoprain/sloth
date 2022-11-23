@@ -15,16 +15,14 @@ struct WebListView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            List(links, id: \.self) { link in
-                NavigationLink {
-                    VStack {
-//                        DocumentTranslatorView()
-                        WebView(url: URL(string: link)!)
-                    }
-                } label: {
-                    Text(link)
+        List(links, id: \.self) { link in
+            NavigationLink {
+                VStack {
+                    DocumentTranslatorView()
+                    WebView(url: URL(string: link)!)
                 }
+            } label: {
+                Text(link)
             }
         }
     }

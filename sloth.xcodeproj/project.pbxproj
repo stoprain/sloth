@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9897DBDE292DEAED002CD2DD /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 9897DBDD292DEAED002CD2DD /* Defaults */; };
+		9897DBE0292DEB45002CD2DD /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897DBDF292DEB45002CD2DD /* Preference.swift */; };
 		98E40F70292DBFA100BBFD48 /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E40F6E292DBFA100BBFD48 /* Translator.swift */; };
 		98E40F71292DBFA100BBFD48 /* ECDICTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E40F6F292DBFA100BBFD48 /* ECDICTHelper.swift */; };
 		98E40F73292DBFCA00BBFD48 /* DocumentTranslatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E40F72292DBFCA00BBFD48 /* DocumentTranslatorView.swift */; };
@@ -29,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9897DBDF292DEB45002CD2DD /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		98E40F6E292DBFA100BBFD48 /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 		98E40F6F292DBFA100BBFD48 /* ECDICTHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECDICTHelper.swift; sourceTree = "<group>"; };
 		98E40F72292DBFCA00BBFD48 /* DocumentTranslatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTranslatorView.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9897DBDE292DEAED002CD2DD /* Defaults in Frameworks */,
 				B4E76282292BAE10000D44AF /* SQLite in Frameworks */,
 				B4E7627B292A2974000D44AF /* EPUBKit in Frameworks */,
 			);
@@ -108,6 +112,7 @@
 				B44EE6EE2928EC9C0005B083 /* DocumentTextContainer.swift */,
 				B44EE81F29290C580005B083 /* sloth-Bridging-Header.h */,
 				B4E76287292D9AF0000D44AF /* WebListView.swift */,
+				9897DBDF292DEB45002CD2DD /* Preference.swift */,
 			);
 			path = sloth;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			packageProductDependencies = (
 				B4E7627A292A2974000D44AF /* EPUBKit */,
 				B4E76281292BAE10000D44AF /* SQLite */,
+				9897DBDD292DEAED002CD2DD /* Defaults */,
 			);
 			productName = sloth;
 			productReference = B46828F029278CE900A3E113 /* sloth.app */;
@@ -171,6 +177,7 @@
 			packageReferences = (
 				B4E76279292A2974000D44AF /* XCRemoteSwiftPackageReference "EPUBKit" */,
 				B4E76280292BAE10000D44AF /* XCRemoteSwiftPackageReference "SQLite" */,
+				9897DBDC292DEAED002CD2DD /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			productRefGroup = B46828F129278CE900A3E113 /* Products */;
 			projectDirPath = "";
@@ -200,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9897DBE0292DEB45002CD2DD /* Preference.swift in Sources */,
 				98E40F70292DBFA100BBFD48 /* Translator.swift in Sources */,
 				B4E76288292D9AF0000D44AF /* WebListView.swift in Sources */,
 				B44EE6ED2928EC0D0005B083 /* DocumentTextView.swift in Sources */,
@@ -417,6 +425,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9897DBDC292DEAED002CD2DD /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		B4E76279292A2974000D44AF /* XCRemoteSwiftPackageReference "EPUBKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/witekbobrowski/EPUBKit";
@@ -436,6 +452,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9897DBDD292DEAED002CD2DD /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9897DBDC292DEAED002CD2DD /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
 		B4E7627A292A2974000D44AF /* EPUBKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B4E76279292A2974000D44AF /* XCRemoteSwiftPackageReference "EPUBKit" */;

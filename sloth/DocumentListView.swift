@@ -12,36 +12,26 @@ struct Document {
     var url: URL?
 }
 
+struct TableOfContent {
+    var title: String
+    var path: String?
+}
+
 struct DocumentListView: View {
     
     @State var documents = [Document]()
-    @State var showPicker = false
     
     var body: some View {
         VStack {
-            NavigationView {
-                
-//                Button(action: {
-//                    self.showPicker.toggle()
-//                }, label: {
-//                    Text("Push me")
-//                })
-//                .sheet(isPresented: self.$showPicker) {
-//                    DocumentPickerView()
-//                }
-                
-                List(documents, id: \.title) { d in
-                    NavigationLink {
-                        DocumentView(document: d)
-                    } label: {
-                        Text(d.title)
-                    }
+            List(documents, id: \.title) { d in
+                NavigationLink {
+                    DocumentView(document: d)
+                } label: {
+                    Text(d.title)
                 }
             }
         }.onAppear {
-            
             guard let url = Bundle.main.url(forResource: "pg69407", withExtension: "epub") else { return }
-            
             guard let s = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
             guard let directoryContents = try? FileManager.default.contentsOfDirectory(atPath: s) else { return }
             var cs = [Document]()

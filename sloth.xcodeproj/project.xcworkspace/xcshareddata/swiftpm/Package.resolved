@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "defaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/Defaults",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7a22d378742acbef49ecff11b9de8bf8b72b34dc"
+      }
+    },
+    {
       "identity" : "epubkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/witekbobrowski/EPUBKit",

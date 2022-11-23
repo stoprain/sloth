@@ -8,10 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var showPicker = false
+    
     var body: some View {
         VStack {
-            DocumentListView()
-//            WebListView()
+            NavigationView {
+                VStack {
+                    Button(action: {
+                        self.showPicker.toggle()
+                    }, label: {
+                        Text("Add EPUB from Files")
+                    })
+                    .sheet(isPresented: self.$showPicker) {
+                        DocumentPickerView()
+                    }
+                    NavigationLink {
+                        DocumentListView()
+                    } label: {
+                        Text("EPUB")
+                    }
+                    NavigationLink {
+                        WebListView()
+                    } label: {
+                        Text("Web Bookmarks")
+                    }
+                }
+            }
         }
         .onAppear {
 

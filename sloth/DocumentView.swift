@@ -11,28 +11,27 @@ import EPUBKit
 struct DocumentView: View {
     
     @State var document: Document
-    @State var contents = [String]()
+    @State var contents = [TableOfContent]()
     
     var body: some View {
         VStack {
-            List(contents, id: \.self) { c in
+            List(contents, id: \.path) { c in
                 NavigationLink {
-//                    DocumentWebView(url: URL(fileURLWithPath: parse(s: c)))
-                    DocumentTextView(url: URL(fileURLWithPath: parse(s: c)))
-                        .navigationBarHidden(true)
+                    DocumentTextView(url: URL(fileURLWithPath: parse(s: c.path ?? "")))
+//                        .navigationBarHidden(true)
                 } label: {
-                    Text(c)
+                    Text(c.title)
                 }
             }
         }.onAppear {
             guard let url = document.url else { return }
             let epub = EPUBDocument(url: url)
-            var items = [String]()
+            var items = [TableOfContent]()
             if let ts = epub?.tableOfContents.subTable {
                 for t in ts {
                     if let content = t.item, let c = epub?.contentDirectory.appendingPathComponent(content) {
-//                        let html = try? String(contentsOfFile: c.path)
-                        items.append(c.path)
+                        let toc = TableOfContent(title: t.label, path: c.path)
+                        items.append(toc)
                     }
                 }
             }

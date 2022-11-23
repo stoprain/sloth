@@ -7,6 +7,7 @@
 
 import SQLite
 import Foundation
+import Zip
 
 struct ECDICTHelper {
     static let shared = ECDICTHelper()
@@ -15,14 +16,20 @@ struct ECDICTHelper {
     private let word = Expression<String?>("word")
     private let translation = Expression<String?>("translation")
     
+    //TODO: remove __MACOSX in zip
     private init() {
+        guard let s = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
+        let path = s + "/sloth/ecdict.db"
+        if !FileManager.default.fileExists(atPath:path) {
+            guard let url = Bundle.main.url(forResource: "ecdict.db", withExtension: "zip") else { return }
+            let durl = URL(fileURLWithPath: s + "/sloth")
+            try? Zip.unzipFile(url, destination: durl, overwrite: true, password: nil)
+        }
         do {
-            let path = Bundle.main.path(forResource: "ecdict", ofType: "db")!
             db = try Connection(path)
         } catch {
             print(error)
         }
-        
     }
     
     func query(s: String) -> String {

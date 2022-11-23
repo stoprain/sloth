@@ -39,9 +39,13 @@ struct DocumentListView: View {
                 }
             }
         }.onAppear {
+            
+            guard let url = Bundle.main.url(forResource: "pg69407", withExtension: "epub") else { return }
+            
             guard let s = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
             guard let directoryContents = try? FileManager.default.contentsOfDirectory(atPath: s) else { return }
             var cs = [Document]()
+            cs.append(Document(title: "pg69407", url: url))
             for c in directoryContents {
                 if c.hasSuffix(".epub") {
                     let d = Document(title: c, url: URL(fileURLWithPath: s + "/" + c))

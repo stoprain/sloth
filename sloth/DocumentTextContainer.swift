@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+var firstTextView: UITextView?
+
 struct DocumentTextContainer: UIViewRepresentable {
     
     var url: URL
@@ -61,6 +63,10 @@ struct DocumentTextContainer: UIViewRepresentable {
             textView.textColor = .label
             textView.isEditable = false
             uiView.addSubview(textView)
+            
+            if firstTextView == nil {
+                firstTextView = textView
+            }
             
             let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.doAction(sender:)))
             textView.addGestureRecognizer(tap)
@@ -151,15 +157,55 @@ struct DocumentTextContainer: UIViewRepresentable {
             location.y -= textView.textContainerInset.top
             
             let characterIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-            print(characterIndex)
+//            print(characterIndex)
             if characterIndex < textView.textStorage.length {
-//                textView.position(within: , atCharacterOffset: <#T##Int#>)
-//                textView.tokenizer.rangeEnclosingPosition(UITextPosition, with: <#T##UITextGranularity#>, inDirection: <#T##UITextDirection#>)
-//                guard let textRange: UITextRange = textView.tokenizer.rangeEnclosingPosition(characterIndex, with: UITextGranularity.word, inDirection: UITextDirection(rawValue: 1)) else {return}
-                //
-                //                let tappedWord: String = textView.text(in: textRange) ?? ""
+                
+//                let myRange = NSRange(location: characterIndex, length: 1)
+//                let substring = (textView.attributedText.string as NSString).substring(with: myRange)
+//                print(substring)
+                
+//                let text = textView.attributedText.string
+//                let tagger = NSLinguisticTagger(tagSchemes: [.tokenType], options: 0)
+//                tagger.string = text
+//
+//                let range = NSRange(location: 0, length: text.utf16.count)
+//                let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
+//                tagger.enumerateTags(in: range, unit: .word, scheme: .tokenType, options: options) { _, tokenRange, _ in
+//                    let word = (text as NSString).substring(with: tokenRange)
+//                    print(word)
+//                }
+                
+                let word = wordAtIndex(index: characterIndex, inString: textView.attributedText.string as NSString)
+                Translator.shared.input = word as String
+//                print(word)
+                
+                
+//                guard let tapPosition = textView.closestPosition(to: location) else { return }
+//                print(tapPosition)
+////                print(textView.characterRange(at: location))
+//                //fetch the word at this position (or nil, if not available)
+//                if let textRange = textView.tokenizer.rangeEnclosingPosition(tapPosition, with: .word, inDirection: UITextDirection(rawValue: 1)) {
+//                    if let tappedWord = textView.text(in: textRange) {
+//                        print("selected word :\(tappedWord)")
+//                        //This only prints when I seem to tap the first letter of word.
+//                    }
+//                }
             }
             
+            
+            
+        }
+        
+        func wordRangeAtIndex(index:Int, inString str:NSString) -> NSRange {
+            let tagger = NSLinguisticTagger(tagSchemes: [NSLinguisticTagScheme.tokenType], options: 0)
+            var r : NSRange = NSMakeRange(0, 0)
+            tagger.string = str as String
+            tagger.tag(at: index, scheme: NSLinguisticTagScheme.tokenType, tokenRange: &r, sentenceRange: nil )
+            return r
+        }
+
+        func wordAtIndex(index:Int, inString str:NSString) -> NSString {
+            return str.substring(with: wordRangeAtIndex(index: index, inString: str)) as NSString
         }
     }
     

@@ -58,8 +58,8 @@ struct WebView: UIViewRepresentable {
         var finishFirstNavigation = false
         
         func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-            print(message.name)
-            print(message.body)
+            guard let word = message.body as? String else { return }
+            Translator.shared.input = word
         }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

@@ -23,16 +23,21 @@ struct ContentView: View {
                     .sheet(isPresented: self.$showPicker) {
                         DocumentPickerView()
                     }
+                    .frame(height: 100)
+                  
                     NavigationLink {
                         DocumentListView()
                     } label: {
                         Text("EPUB")
                     }
+                    .frame(height: 100)
+                  
                     NavigationLink {
                         WebListView()
                     } label: {
                         Text("Web Bookmarks")
                     }
+                    .frame(height: 100)
                 }
             }
         }

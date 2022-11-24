@@ -68,6 +68,7 @@ struct DocumentTextContainer: UIViewRepresentable {
             textView.textColor = DocumentTextContainer.textColor
             textView.backgroundColor = DocumentTextContainer.backgroundColor
             textView.isEditable = false
+            textView.isSelectable = false
             uiView.addSubview(textView)
             
             if firstTextView == nil {
@@ -148,6 +149,6 @@ extension Coordinator: UIScrollViewDelegate {
     
     func updateIndex(scrollView: UIScrollView) {
         Defaults[.pageIndex] = UInt(scrollView.contentOffset.x / scrollView.bounds.size.width)
-        print(Defaults[.pageIndex])
+        Preference.shared.updateDocumentProgress(title: "test", chapter: 1, page: 2)
     }
 }

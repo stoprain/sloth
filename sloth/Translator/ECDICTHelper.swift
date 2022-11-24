@@ -18,11 +18,10 @@ struct ECDICTHelper {
     
     //TODO: remove __MACOSX in zip
     private init() {
-        guard let s = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
-        let path = s + "/sloth/ecdict.db"
+        let path = Preference.documentPath + "/sloth/ecdict.db"
         if !FileManager.default.fileExists(atPath:path) {
             guard let url = Bundle.main.url(forResource: "ecdict.db", withExtension: "zip") else { return }
-            let durl = URL(fileURLWithPath: s + "/sloth")
+            let durl = URL(fileURLWithPath: Preference.documentPath + "/sloth")
             try? Zip.unzipFile(url, destination: durl, overwrite: true, password: nil)
         }
         do {

@@ -26,8 +26,7 @@ struct DocumentPickerView: UIViewControllerRepresentable {
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
             
             for url in urls {
-                guard let s = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
-                let p = s + "/" + url.lastPathComponent
+                let p = Preference.documentPath + "/" + url.lastPathComponent
                 let u = URL(fileURLWithPath: p)
                 try? FileManager.default.copyItem(at: url, to: u)
                 print(u)

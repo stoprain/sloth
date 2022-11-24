@@ -12,6 +12,9 @@ var firstTextView: UITextView?
 
 struct DocumentTextContainer: UIViewRepresentable {
     
+    static let textColor = UIColor(displayP3Red: 69/255, green: 69/255, blue: 69/255, alpha: 1.0)
+    static let backgroundColor = UIColor(displayP3Red: 249/255, green: 247/255, blue: 231/255, alpha: 1.0)
+    
     var url: URL
     let frame: CGRect
     
@@ -62,7 +65,8 @@ struct DocumentTextContainer: UIViewRepresentable {
             let textView = UITextView(frame: textViewFrame, textContainer: textContainer)
             textView.font = newYorkFont
             textView.isScrollEnabled = false
-            textView.textColor = .label
+            textView.textColor = DocumentTextContainer.textColor
+            textView.backgroundColor = DocumentTextContainer.backgroundColor
             textView.isEditable = false
             uiView.addSubview(textView)
             

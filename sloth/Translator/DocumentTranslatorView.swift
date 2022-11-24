@@ -16,6 +16,7 @@ struct DocumentTranslatorView: View {
             HStack {
                 Text(translator.input)
                     .frame(width: 100)
+                    .foregroundColor(Color(DocumentTextContainer.textColor))
                 Text(translator.output)
                     .frame(
                       minWidth: 0,
@@ -24,6 +25,7 @@ struct DocumentTranslatorView: View {
                       maxHeight: .infinity,
                       alignment: .topLeading
                     )
+                    .foregroundColor(Color(DocumentTextContainer.textColor))
             }
                 .frame(height: 50)
             
@@ -31,6 +33,7 @@ struct DocumentTranslatorView: View {
                 .frame(height: 1)
                 .background(Color(UIColor.lightGray))
         }
+        .background(Color(DocumentTextContainer.backgroundColor))
     }
 }
 

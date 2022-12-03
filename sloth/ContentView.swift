@@ -13,18 +13,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            NavigationView {
+            NavigationStack {
                 VStack {
-                    Button(action: {
-                        self.showPicker.toggle()
-                    }, label: {
-                        Text("Add EPUB from Files")
-                    })
-                    .sheet(isPresented: self.$showPicker) {
-                        DocumentPickerView()
-                    }
-                    .frame(height: 100)
-                  
                     NavigationLink {
                         DocumentListView()
                     } label: {
@@ -38,6 +28,24 @@ struct ContentView: View {
                         Text("Web Bookmarks")
                     }
                     .frame(height: 100)
+                }
+                .sheet(isPresented: self.$showPicker) {
+                    DocumentPickerView()
+                }
+                .navigationTitle("")
+                .toolbar {
+                    ToolbarItemGroup(placement: .primaryAction) {
+                        Menu(content: {
+                            Button(action: {
+                              self.showPicker.toggle()
+                            }) {
+                                Label("Add from Files", systemImage: "folder")
+                            }
+                        }, label: {
+                            Image(systemName: "plus")
+                            
+                        })
+                    }
                 }
             }
         }

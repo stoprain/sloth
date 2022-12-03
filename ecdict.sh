@@ -5,3 +5,4 @@ then
 fi
 
 python3 -c "from ECDICT import stardict; stardict.convert_dict('ecdict.csv', 'ecdict.db')"
+zip ecdict.db.zip ecdict.db

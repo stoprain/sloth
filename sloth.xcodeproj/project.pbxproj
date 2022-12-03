@@ -17,7 +17,8 @@
 		B436B61C2927D1B5009F1A1B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B61B2927D1B5009F1A1B /* PageViewController.swift */; };
 		B436B61E29286969009F1A1B /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B61D29286968009F1A1B /* DocumentPickerView.swift */; };
 		B436B62229286F18009F1A1B /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B62129286F18009F1A1B /* DocumentListView.swift */; };
-		B436B624292870FC009F1A1B /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B623292870FC009F1A1B /* DocumentView.swift */; };
+		B436B624292870FC009F1A1B /* ChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436B623292870FC009F1A1B /* ChapterListView.swift */; };
+		B43F91772931B0A9004B1D98 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F91762931B0A9004B1D98 /* Document.swift */; };
 		B44EE6ED2928EC0D0005B083 /* DocumentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44EE6EC2928EC0D0005B083 /* DocumentTextView.swift */; };
 		B44EE6EF2928EC9C0005B083 /* DocumentTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44EE6EE2928EC9C0005B083 /* DocumentTextContainer.swift */; };
 		B46828F429278CE900A3E113 /* slothApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46828F329278CE900A3E113 /* slothApp.swift */; };
@@ -40,7 +41,8 @@
 		B436B61B2927D1B5009F1A1B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B436B61D29286968009F1A1B /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
 		B436B62129286F18009F1A1B /* DocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListView.swift; sourceTree = "<group>"; };
-		B436B623292870FC009F1A1B /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
+		B436B623292870FC009F1A1B /* ChapterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListView.swift; sourceTree = "<group>"; };
+		B43F91762931B0A9004B1D98 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		B44EE6EC2928EC0D0005B083 /* DocumentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTextView.swift; sourceTree = "<group>"; };
 		B44EE6EE2928EC9C0005B083 /* DocumentTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTextContainer.swift; sourceTree = "<group>"; };
 		B44EE81F29290C580005B083 /* sloth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sloth-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -107,12 +109,13 @@
 				B436B61B2927D1B5009F1A1B /* PageViewController.swift */,
 				B436B61D29286968009F1A1B /* DocumentPickerView.swift */,
 				B436B62129286F18009F1A1B /* DocumentListView.swift */,
-				B436B623292870FC009F1A1B /* DocumentView.swift */,
+				B436B623292870FC009F1A1B /* ChapterListView.swift */,
 				B44EE6EC2928EC0D0005B083 /* DocumentTextView.swift */,
 				B44EE6EE2928EC9C0005B083 /* DocumentTextContainer.swift */,
 				B44EE81F29290C580005B083 /* sloth-Bridging-Header.h */,
 				B4E76287292D9AF0000D44AF /* WebListView.swift */,
 				9897DBDF292DEB45002CD2DD /* Preference.swift */,
+				B43F91762931B0A9004B1D98 /* Document.swift */,
 			);
 			path = sloth;
 			sourceTree = "<group>";
@@ -220,7 +223,8 @@
 				98E40F71292DBFA100BBFD48 /* ECDICTHelper.swift in Sources */,
 				98E40F73292DBFCA00BBFD48 /* DocumentTranslatorView.swift in Sources */,
 				B436B61C2927D1B5009F1A1B /* PageViewController.swift in Sources */,
-				B436B624292870FC009F1A1B /* DocumentView.swift in Sources */,
+				B436B624292870FC009F1A1B /* ChapterListView.swift in Sources */,
+				B43F91772931B0A9004B1D98 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

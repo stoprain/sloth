@@ -9,18 +9,41 @@ import SwiftUI
 
 struct DocumentTextView: View {
     
-    var url: URL
-    
-    var body: some View {
-        VStack {
+  @StateObject var document: Document
+  @State private var isPresented = false
+  @State private var url: URL?
 
-            DocumentTranslatorView()
-            
-            GeometryReader { proxy in
-                DocumentTextContainer(url: url, frame: proxy.frame(in: .local))
-            }
-        }
+    
+  var body: some View {
+    VStack {
+      DocumentTranslatorView()
+      
+      //TODO: reponse to chapter change
+      GeometryReader { proxy in
+        DocumentTextContainer(url: url, frame: proxy.frame(in: .local))
+      }
     }
+    .onAppear {
+      if url == nil {
+        url = document.getCurrentChapterUrl()
+      }
+    }
+    .onChange(of: document.chapter, perform: { newStateObject in
+      url = document.getCurrentChapterUrl()
+    })
+    .toolbar {
+      ToolbarItem(placement: .primaryAction) {
+        Button {
+          isPresented.toggle()
+        } label: {
+          Image(systemName: "list.bullet")
+        }
+      }
+    }
+    .sheet(isPresented: $isPresented) {
+      ChapterListView(document: document, isPresented: $isPresented)
+    }
+  }
 }
 
 //struct DocumentTextView_Previews: PreviewProvider {

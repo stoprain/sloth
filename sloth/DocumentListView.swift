@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-struct Document {
-    var title: String
-    var url: URL?
-}
-
-struct TableOfContent {
-    var title: String
-    var path: String?
-}
-
 struct DocumentListView: View {
     
     @State var documents = [Document]()
@@ -25,7 +15,9 @@ struct DocumentListView: View {
         VStack {
             List(documents, id: \.title) { d in
                 NavigationLink {
-                    DocumentView(document: d)
+                  DocumentTextView(document: d)
+                  //TODO display based on last page
+//                    ChapterListView(document: d)
                 } label: {
                     Text(d.title)
                 }

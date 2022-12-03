@@ -15,7 +15,7 @@ struct DocumentTextContainer: UIViewRepresentable {
     static let textColor = UIColor(displayP3Red: 69/255, green: 69/255, blue: 69/255, alpha: 1.0)
     static let backgroundColor = UIColor(displayP3Red: 249/255, green: 247/255, blue: 231/255, alpha: 1.0)
     
-    var url: URL
+    var url: URL?
     let frame: CGRect
     
     var newYorkFont: UIFont {
@@ -39,6 +39,8 @@ struct DocumentTextContainer: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIScrollView, context: Context) {
+      
+      guard let url = url else { return }
         
         let textStorage = try? NSTextStorage(url: url, options: [
             .documentType: NSAttributedString.DocumentType.html,
@@ -148,7 +150,8 @@ extension Coordinator: UIScrollViewDelegate {
     }
     
     func updateIndex(scrollView: UIScrollView) {
-        Defaults[.pageIndex] = UInt(scrollView.contentOffset.x / scrollView.bounds.size.width)
-        Preference.shared.updateDocumentProgress(title: "test", chapter: 1, page: 2)
+        let p = UInt(scrollView.contentOffset.x / scrollView.bounds.size.width)
+//        Defaults[.pageIndex] = p
+        Preference.shared.updateDocumentProgress(title: "test", chapter: 1, page: Int64(p))
     }
 }

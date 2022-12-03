@@ -41,6 +41,7 @@ struct Preference {
     }
     
     func updateDocumentProgress(title: String, chapter: Int64, page: Int64) {
+        print("\(title) \(chapter) \(page)")
         do {
             try documents.insert([self.title <- title, self.chapter <- chapter, self.page <- page])
 //            let doc = documents.filter(self.title == title)
